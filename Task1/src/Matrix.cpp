@@ -279,12 +279,12 @@ namespace miit::algebra
 		return result;
 	}
 
-	int Matrix::rowsCount() const
+	size_t Matrix::rowsCount() const
 	{
 		return rows;
 	}
 
-	int Matrix::columnsCount() const
+	size_t Matrix::columnsCount() const
 	{
 		return columns;
 	}
@@ -300,7 +300,7 @@ namespace miit::algebra
 		}
 	}
 
-	void Matrix::removeColumn(int columnIndex)
+	void Matrix::removeColumn(const size_t columnIndex)
 	{
 		if (columnIndex < 0 || columnIndex >= columns)
 		{
@@ -337,7 +337,7 @@ namespace miit::algebra
 	{
 		for (size_t i = 0; i < matrix.rows; i++)
 		{
-			for (int j = 0; j < matrix.columns; j++)
+			for (size_t j = 0; j < matrix.columns; j++)
 			{
 				output << matrix.data[i][j];
 				if (j + 1 < matrix.columns) output << '\t';
@@ -349,9 +349,9 @@ namespace miit::algebra
 
 	std::istream& operator >> (std::istream& input, Matrix& matrix)
 	{
-		for (int i = 0; i < matrix.rows; i++)
+		for (size_t i = 0; i < matrix.rows; i++)
 		{
-			for (int j = 0; j < matrix.columns; j++)
+			for (size_t j = 0; j < matrix.columns; j++)
 			{
 				input >> matrix.data[i][j];
 			}
