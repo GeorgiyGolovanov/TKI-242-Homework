@@ -7,7 +7,8 @@
 #include "../include/IStreamGenerator.h"
 #include "../include/ConstantGenerator.h"
 #include "../include/ZeroGenerator.h"
-#include "../include/ExerciseVariant7.h"
+#include "../include/Task1.h"
+#include "../include/Task2.h"
 
 using namespace miit::algebra;
 
@@ -44,16 +45,20 @@ int main()
 		Matrix matrix(rows, columns);
 		auto generator = chooseGenerator();
 
-		ExerciseVariant7 exercise(matrix, *generator);
-		exercise.Fill();
+		Task1 task1(matrix, *generator);
+		Task2 task2(matrix, *generator);
+
+		task1.Fill();
 
 		std::cout << "\nИсходная матрица:\n" << matrix;
 
-		Matrix result = exercise.TaskOne();
-		std::cout << "\nПосле задания 1\n" << result;
+		Matrix result1 = task1.Solve();
+		std::cout << "\nПосле задания 1\n" << result1;
 
-		Matrix result2 = exercise.TaskTwo();
+		Matrix result2 = task2.Solve();
+
 		std::cout << "\nПосле задания 2\n";
+
 		if (result2.rowsCount() == 0 || result2.columnsCount() == 0)
 		{
 			std::cout << "Матрица пустая\n";
