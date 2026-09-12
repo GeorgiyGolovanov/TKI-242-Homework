@@ -6,8 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Project code as a library.
-# Main.cpp is intentionally NOT included: Google Test supplies its own main().
 add_library(task1_lib
     src/Matrix.cpp
     src/RandomGenerator.cpp
@@ -15,7 +13,8 @@ add_library(task1_lib
     src/ConstantGenerator.cpp
     src/ZeroGenerator.cpp
     src/Exercise.cpp
-    src/ExerciseVariant7.cpp
+    src/Task1.cpp
+    src/Task2.cpp
 )
 
 target_include_directories(task1_lib
@@ -23,10 +22,8 @@ target_include_directories(task1_lib
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-# Download GoogleTest automatically on the first CMake configure.
 include(FetchContent)
 
-# Important for MSVC: use the same CRT mode as the project.
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 FetchContent_Declare(
