@@ -1,12 +1,13 @@
 #include <gtest/gtest.h>
 #include <sstream>
-
 #include "Matrix.h"
 #include "ConstantGenerator.h"
 #include "IStreamGenerator.h"
-#include "ExerciseVariant7.h"
+#include "Task1.h"
+#include "Task2.h"
 
 using namespace miit::algebra;
+
 
 
 TEST(ConstantGeneratorTests, ReturnsSpecifiedValue)
@@ -68,7 +69,7 @@ TEST(MatrixTests, MultipliesMatrices)
 }
 
 
-TEST(ExerciseVariant7Tests, TaskOneReplacesMinimumInEachRowWithZero)
+TEST(Task1Tests, ReplacesMinimumInEachRowWithZero)
 {
 	Matrix matrix(3, 3);
 
@@ -85,9 +86,9 @@ TEST(ExerciseVariant7Tests, TaskOneReplacesMinimumInEachRowWithZero)
 	matrix(2, 2) = 3;
 
 	ConstantGenerator generator(0);
-	ExerciseVariant7 exercise(matrix, generator);
+	Task1 task(matrix, generator);
 
-	Matrix& result = exercise.TaskOne();
+	Matrix& result = task.Solve();
 
 	EXPECT_EQ(result(0, 0), 0);
 	EXPECT_EQ(result(0, 1), 7);
@@ -102,8 +103,7 @@ TEST(ExerciseVariant7Tests, TaskOneReplacesMinimumInEachRowWithZero)
 	EXPECT_EQ(result(2, 2), 3);
 }
 
-
-TEST(ExerciseVariant7Tests, TaskTwoRemovesColumnsWithPositiveOddValues)
+TEST(Task2Tests, RemovesColumnsWithPositiveOddValues)
 {
 	Matrix matrix(2, 3);
 
@@ -117,15 +117,16 @@ TEST(ExerciseVariant7Tests, TaskTwoRemovesColumnsWithPositiveOddValues)
 	matrix(1, 2) = 8;
 
 	ConstantGenerator generator(0);
-	ExerciseVariant7 exercise(matrix, generator);
+	Task2 task(matrix, generator);
 
-	Matrix& result = exercise.TaskTwo();
+	Matrix& result = task.Solve();
 
 	ASSERT_EQ(result.rowsCount(), 2);
 	ASSERT_EQ(result.columnsCount(), 2);
 
 	EXPECT_EQ(result(0, 0), 2);
 	EXPECT_EQ(result(1, 0), 4);
+
 	EXPECT_EQ(result(0, 1), -3);
 	EXPECT_EQ(result(1, 1), 8);
 }
