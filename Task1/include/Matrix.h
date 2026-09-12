@@ -20,12 +20,12 @@ namespace miit::algebra
 		/**
 		 * @brief Количество строк матрицы
 		 */
-		int rows;
+		size_t rows;
 
 		/**
 		 * @brief Количество столбцов матрицы
 		 */
-		int columns;
+		size_t columns;
 
 		/**
 		 * @brief Выбросить исключение с указанным сообщением
@@ -137,13 +137,13 @@ namespace miit::algebra
 		 * @brief Получить количество строк матрицы
 		 * @return Количество строк
 		 */
-		int rowsCount() const;
+		size_t rowsCount() const;
 
 		/**
 		 * @brief Получить количество столбцов матрицы
 		 * @return Количество столбцов
 		 */
-		int columnsCount() const;
+		size_t columnsCount() const;
 
 		/**
 		 * @brief Заполнить матрицу значениями из генератора
@@ -155,7 +155,7 @@ namespace miit::algebra
 		 * @brief Удалить столбец по его индексу
 		 * @param columnIndex Индекс столбца, который нужно удалить
 		 */
-		void removeColumn(int columnIndex);
+		void removeColumn(const size_t columnIndex);
 
 		/**
 		 * @brief Вывести матрицу в поток
