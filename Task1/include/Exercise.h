@@ -24,7 +24,7 @@ namespace miit::algebra
 	public:
 		/**
 		 * @brief Создать объект задания для указанной матрицы
-		 * @param matrix Матрица, над которой будут выполняться задания
+		 * @param matrix Матрица, над которой будет выполняться задание
 		 * @param generator Генератор для заполнения матрицы
 		 */
 		Exercise(Matrix& matrix, Generator& generator);
@@ -40,15 +40,9 @@ namespace miit::algebra
 		void Fill();
 
 		/**
-		 * @brief Выполнить первое задание
-		 * @return Матрица с результатом первого задания
+		 * @brief Выполнить задание
+		 * @return Матрица с результатом задания
 		 */
-		virtual Matrix& TaskOne() = 0;
-
-		/**
-		 * @brief Выполнить второе задание
-		 * @return Матрица с результатом второго задания
-		 */
-		virtual Matrix& TaskTwo() = 0;
+		virtual Matrix& Solve() = 0;
 	};
 }
