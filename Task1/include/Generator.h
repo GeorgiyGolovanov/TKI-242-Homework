@@ -17,6 +17,6 @@ namespace miit::algebra
 		 * @brief Сгенерировать следующее значение
 		 * @return Сгенерированное значение
 		 */
-		virtual int generate() = 0;
+		virtual int generate() const = 0;
 	};
 }
