@@ -19,7 +19,7 @@ namespace miit::algebra
 		/**
 		 * @brief Генератор, используемый для заполнения матрицы
 		 */
-		Generator& OurGenerator;
+		const Generator& OurGenerator;
 
 	public:
 		/**
@@ -27,7 +27,7 @@ namespace miit::algebra
 		 * @param matrix Матрица, над которой будет выполняться задание
 		 * @param generator Генератор для заполнения матрицы
 		 */
-		Exercise(Matrix& matrix, Generator& generator);
+		Exercise(Matrix& matrix, const Generator& generator);
 
 		/**
 		 * @brief Уничтожить объект задания
