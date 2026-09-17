@@ -26,6 +26,6 @@ namespace miit::algebra
 		 * @brief Получить заданное постоянное значение
 		 * @return Значение, заданное при создании генератора
 		 */
-		int generate() override;
+		int generate() const override;
 	};
 }
