@@ -17,8 +17,8 @@ namespace miit::algebra
 
 		/**
 		 * @brief Получить нулевое значение
-		 * @return Ноль
+		 * @return Нольa
 		 */
-		int generate() override;
+		int generate() const override;
 	};
 }
