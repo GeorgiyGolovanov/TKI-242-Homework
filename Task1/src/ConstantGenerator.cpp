@@ -1,11 +1,13 @@
 #include "../include/ConstantGenerator.h"
 
-miit::algebra::ConstantGenerator::ConstantGenerator(const int value)
+namespace miit::algebra
 {
-    this->value = value;
-}
+	ConstantGenerator::ConstantGenerator(const int value) : value(value)
+	{
+	}
 
-int miit::algebra::ConstantGenerator::generate()
-{
-    return this->value;
+	int ConstantGenerator::generate() const
+	{
+		return this->value;
+	}
 }
