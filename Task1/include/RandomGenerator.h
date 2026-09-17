@@ -14,12 +14,12 @@ namespace miit::algebra
 		/**
 		 * @brief Равномерное распределение случайных целых чисел
 		 */
-		std::uniform_int_distribution<int> distribution;
+		mutable std::uniform_int_distribution<int> distribution;
 
 		/**
 		 * @brief Генератор псевдослучайных чисел
 		 */
-		std::mt19937 generator;
+		mutable std::mt19937 generator;
 
 	public:
 		/**
@@ -33,6 +33,6 @@ namespace miit::algebra
 		 * @brief Сгенерировать случайное число из диапазона [min; max]
 		 * @return Случайное число из заданного диапазона
 		 */
-		int generate() override;
+		int generate() const override;
 	};
 }
