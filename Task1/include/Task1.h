@@ -21,7 +21,7 @@ namespace miit::algebra
 		 * @param matrix Матрица, над которой будет выполняться задание
 		 * @param generator Генератор для заполнения матрицы
 		 */
-		Task1(Matrix& matrix, Generator& generator);
+		Task1(Matrix& matrix, const Generator& generator);
 
 		/**
 		 * @brief Заменить минимальный элемент в каждой строке на ноль
