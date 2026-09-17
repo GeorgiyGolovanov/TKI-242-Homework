@@ -39,6 +39,16 @@ namespace miit::algebra
 		 */
 		void MEMORY(int** data) const;
 
+		/**
+		 * @brief Выделить память под матрицу текущего размера
+		 */
+		void allocate();
+
+		/**
+		 * @brief Освободить память, занятую матрицей
+		 */
+		void clear();
+
 	public:
 		/**
 		 * @brief Создать пустую матрицу
@@ -111,7 +121,7 @@ namespace miit::algebra
 		 * @param other Матрица для умножения
 		 * @return Результат умножения матриц
 		 */
-		Matrix operator * (Matrix& other) const;
+		Matrix operator * (const Matrix& other) const;
 
 		/**
 		 * @brief Получить элемент матрицы по индексам
@@ -119,7 +129,15 @@ namespace miit::algebra
 		 * @param column Индекс столбца
 		 * @return Ссылка на выбранный элемент матрицы
 		 */
-		int& operator () (int row, int column);
+		int& operator () (const int row, const int column);
+
+		/**
+		 * @brief Получить элемент неизменяемой матрицы по индексам
+		 * @param row Индекс строки
+		 * @param column Индекс столбца
+		 * @return Константная ссылка на выбранный элемент матрицы
+		 */
+		const int& operator () (const int row, const int column) const;
 
 		/**
 		 * @brief Найти минимальное значение в матрице
@@ -149,7 +167,7 @@ namespace miit::algebra
 		 * @brief Заполнить матрицу значениями из генератора
 		 * @param generator Генератор значений
 		 */
-		void fill(Generator& generator);
+		void fill(const Generator& generator);
 
 		/**
 		 * @brief Удалить столбец по его индексу
@@ -174,7 +192,7 @@ namespace miit::algebra
 		friend std::istream& operator >> (std::istream& input, Matrix& matrix);
 
 		/**
-		 * @brief Освободить память, занятую матрицей
+		 * @brief Уничтожить матрицу, освободив занятую память
 		 */
 		~Matrix();
 	};
