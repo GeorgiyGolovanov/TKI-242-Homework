@@ -1,6 +1,9 @@
 #include "../include/ZeroGenerator.h"
 
-int miit::algebra::ZeroGenerator::generate()
+namespace miit::algebra
 {
-	return 0;
+	int ZeroGenerator::generate() const
+	{
+		return 0;
+	}
 }
