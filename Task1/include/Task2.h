@@ -21,7 +21,7 @@ namespace miit::algebra
 		 * @param matrix Матрица, над которой будет выполняться задание
 		 * @param generator Генератор для заполнения матрицы
 		 */
-		Task2(Matrix& matrix, Generator& generator);
+		Task2(Matrix& matrix, const Generator& generator);
 
 		/**
 		 * @brief Удалить столбцы, в которых есть положительные нечётные элементы
