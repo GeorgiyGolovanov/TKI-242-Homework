@@ -2,7 +2,7 @@
 
 namespace miit::algebra
 {
-	Exercise::Exercise(Matrix& matrix, Generator& generator)
+	Exercise::Exercise(Matrix& matrix, const Generator& generator)
 		: OurMatrix(matrix), OurGenerator(generator)
 	{
 	}
