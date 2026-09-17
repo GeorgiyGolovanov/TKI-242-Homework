@@ -27,6 +27,6 @@ namespace miit::algebra
 		 * @brief Считать следующее значение из потока
 		 * @return Считанное значение
 		 */
-		int generate() override;
+		int generate() const override;
 	};
 }
