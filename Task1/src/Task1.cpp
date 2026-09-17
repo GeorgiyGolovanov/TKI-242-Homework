@@ -2,7 +2,7 @@
 
 namespace miit::algebra
 {
-	Task1::Task1(Matrix& matrix, Generator& generator)
+	Task1::Task1(Matrix& matrix, const Generator& generator)
 		: Exercise(matrix, generator)
 	{
 	}
@@ -11,11 +11,11 @@ namespace miit::algebra
 	{
 		result = OurMatrix;
 
-		for (std::size_t i = 0; i < result.rowsCount(); ++i)
+		for (int i = 0; i < static_cast<int>(result.rowsCount()); ++i)
 		{
-			std::size_t minColumn = 0;
+			int minColumn = 0;
 
-			for (std::size_t j = 1; j < result.columnsCount(); ++j)
+			for (int j = 1; j < static_cast<int>(result.columnsCount()); ++j)
 			{
 				if (result(i, j) < result(i, minColumn))
 				{
