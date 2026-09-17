@@ -2,7 +2,7 @@
 
 namespace miit::algebra
 {
-	Task2::Task2(Matrix& matrix, Generator& generator)
+	Task2::Task2(Matrix& matrix, const Generator& generator)
 		: Exercise(matrix, generator)
 	{
 	}
@@ -11,16 +11,17 @@ namespace miit::algebra
 	{
 		result = OurMatrix;
 
-		std::size_t column = 0;
+		size_t column = 0;
 
 		while (column < result.columnsCount())
 		{
 			bool containsPositiveOdd = false;
 
-			for (std::size_t row = 0; row < result.rowsCount(); ++row)
+			for (int row = 0; row < static_cast<int>(result.rowsCount()); ++row)
 			{
-				if (result(row, column) > 0 &&
-					result(row, column) % 2 != 0)
+				const int value = result(row, static_cast<int>(column));
+
+				if (value > 0 && value % 2 != 0)
 				{
 					containsPositiveOdd = true;
 					break;
