@@ -11,11 +11,11 @@ namespace miit::algebra
 	{
 		result = OurMatrix;
 
-		for (int i = 0; i < static_cast<int>(result.rowsCount()); ++i)
+		for (size_t i = 0; i < static_cast<size_t>(result.rowsCount()); ++i)
 		{
-			int minColumn = 0;
+			size_t minColumn = 0;
 
-			for (int j = 1; j < static_cast<int>(result.columnsCount()); ++j)
+			for (size_t j = 1; j < static_cast<size_t>(result.columnsCount()); ++j)
 			{
 				if (result(i, j) < result(i, minColumn))
 				{
