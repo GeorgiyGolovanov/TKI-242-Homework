@@ -17,9 +17,9 @@ namespace miit::algebra
 		{
 			bool containsPositiveOdd = false;
 
-			for (int row = 0; row < static_cast<int>(result.rowsCount()); ++row)
+			for (size_t row = 0; row < static_cast<size_t>(result.rowsCount()); ++row)
 			{
-				const int value = result(row, static_cast<int>(column));
+				const int value = result(row, static_cast<size_t>(column));
 
 				if (value > 0 && value % 2 != 0)
 				{
