@@ -40,7 +40,7 @@ TEST(RandomGeneratorTests, GeneratesValuesInsideRange)
 {
 	const RandomGenerator generator(1, 10);
 
-	for (int i = 0; i < 50; i++)
+	for (size_t i = 0; i < 50; i++)
 	{
 		const int value = generator.generate();
 
