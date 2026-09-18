@@ -35,6 +35,11 @@ namespace miit::algebra
 		virtual ~Exercise() = default;
 
 		/**
+		 * @brief Заполнить матрицу с помощью выбранного генератора
+		 */
+		void Fill();
+
+		/**
 		 * @brief Выполнить задание
 		 * @return Матрица с результатом задания
 		 */
