@@ -12,7 +12,7 @@ file(GLOB LIBRARY_SOURCES CONFIGURE_DEPENDS Library/src/*.cpp)
 add_library(HospitalLibrary STATIC ${LIBRARY_SOURCES})
 target_include_directories(HospitalLibrary PUBLIC Library/include)
 
-add_executable(HospitalConsole Console/src/main.cpp)
+add_executable(HospitalConsole main.cpp)
 target_link_libraries(HospitalConsole PRIVATE HospitalLibrary)
 
 option(BUILD_TESTS "Build unit tests" ON)
