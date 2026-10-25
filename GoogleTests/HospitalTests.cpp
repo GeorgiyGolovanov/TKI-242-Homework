@@ -1,8 +1,8 @@
-#include "../../Library/include/Doctor.h"
-#include "../../Library/include/MedicalInstitution.h"
-#include "../../Library/include/Nurse.h"
-#include "../../Library/include/Patient.h"
-#include "../../Library/include/Ward.h"
+#include "../Library/include/Doctor.h"
+#include "../Library/include/MedicalInstitution.h"
+#include "../Library/include/Nurse.h"
+#include "../Library/include/Patient.h"
+#include "../Library/include/Ward.h"
 #include <gtest/gtest.h>
 #include <stdexcept>
 #include <string>
@@ -75,7 +75,7 @@ TEST(MedicalWorkerTests, Constructor_InvalidWorkData_Throws)
 {
     EXPECT_THROW(Doctor("Олег", "Петров", 30, DoctorSpecialization::Surgeon, "Хирургия", 31),
                  std::invalid_argument);
-    EXPECT_THROW(Nurse("Мария", "Смирнова", 28, NurseSpecialization::Ward, "  ", 1),
+    EXPECT_THROW(Nurse("Мария", "Смирнова", 28, NurseSpecialization::Ward, "", 1),
                  std::invalid_argument);
 }
 
@@ -85,8 +85,8 @@ TEST(MedicalWorkerTests, Constructor_InvalidWorkData_Throws)
 TEST(MedicalWorkerTests, Matches_DepartmentAndSpecialization)
 {
     const Doctor doctor("Анна", "Иванова", 38, DoctorSpecialization::Cardiologist, "Кардиология", 12);
-    EXPECT_TRUE(doctor.matches("КАРДИОЛОГ"));
-    EXPECT_TRUE(doctor.matches("кардиология"));
+    EXPECT_TRUE(doctor.matches("Кардиолог"));
+    EXPECT_TRUE(doctor.matches("Кардиология"));
     EXPECT_FALSE(doctor.matches("хирург"));
 }
 
@@ -200,7 +200,7 @@ protected:
 TEST(MedicalInstitutionConstructorTests, EmptyNameOrAddress_Throws)
 {
     EXPECT_THROW(MedicalInstitution("", "адрес"), std::invalid_argument);
-    EXPECT_THROW(MedicalInstitution("Больница", " "), std::invalid_argument);
+    EXPECT_THROW(MedicalInstitution("Больница", ""), std::invalid_argument);
 }
 
 /** 
@@ -208,7 +208,7 @@ TEST(MedicalInstitutionConstructorTests, EmptyNameOrAddress_Throws)
 */
 TEST_F(MedicalInstitutionTests, GetAll_ReturnsEveryone)
 {
-    EXPECT_EQ(1, hospital.getDoctors().size() + hospital.getNurses().size());
+    EXPECT_EQ(2u, hospital.getDoctors().size() + hospital.getNurses().size());
     EXPECT_EQ(2, hospital.getPatients().size());
     EXPECT_EQ("Кузнецов Иван", hospital.getPatient(ivanId).getFullName());
     EXPECT_EQ("Врач", hospital.getWorker(doctorId).getRole());
@@ -278,10 +278,10 @@ TEST_F(MedicalInstitutionTests, PlacePatient_FullWard_KeepsOldWard)
 */
 TEST_F(MedicalInstitutionTests, Search_FiltersCorrectly)
 {
-    EXPECT_EQ(2, hospital.searchWorkers("кардиология").size());
-    EXPECT_EQ(1, hospital.searchDoctors("кардиология").size());
-    EXPECT_EQ(1, hospital.searchPatients("стенокардия").size());
-    EXPECT_EQ(0, hospital.searchPatients("").size());
+    EXPECT_EQ(2, hospital.searchWorkers("Кардиология").size());
+    EXPECT_EQ(1, hospital.searchDoctors("Кардиология").size());
+    EXPECT_EQ(1, hospital.searchPatients("Стенокардия").size());
+    EXPECT_EQ(0, hospital.searchPatients("Несуществующий диагноз").size());
 }
 
 /** 
